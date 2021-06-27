@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="TestNgMavenExampleSuite" parallel="false">
+    <parameter name="browser" value="safari" />
+     <test name="Initialize">
+        <classes>
+            <class name="com.example.BasicCucumber.TestRunner"/>
+        </classes>
+    </test>
+</suite>
