@@ -11,10 +11,17 @@ import io.cucumber.testng.CucumberOptions;
 		"me.jvt.cucumber.report.PrettyReports:target/cucumber" })
 public class TestRunner extends AbstractTestNGCucumberTests {
 
+	@BeforeSuite
+	@Parameters({ "browser"})
+	public void setUpBrowser(String browser) {
+		Configuration.browser = browser;
+		Configuration.headless = Boolean.valueOf(System.getProperty("headless"));
+		Configuration.clickViaJs = true;
+	}
+	
 	@Override
 	@DataProvider(parallel = true)
 	public Object[][] scenarios() {
-		Configuration.headless = true;
 		return super.scenarios();
 	}
 
